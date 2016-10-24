@@ -1,7 +1,7 @@
 // time-series-clustering
 // time series HCA
 module.exports = (data, oConfig) => {
-    // TODO: add support for not ordered values
+    // TODO: add support for not ordered values?
 
     var _extend = (obj, src) => {
         for (var key in src) {
@@ -13,13 +13,11 @@ module.exports = (data, oConfig) => {
 
     var _defaultConfig = {
         // max time distance for two items to be in the same cluster
-        maxDistance: 86400000 * 1, // 1 day
-        // max number of clusters returned - returned clusters are those with more elements
-        maxClusters: 10, // min value 2 
+        maxDistance: 60 * 60 * 24 * 1000 * 1, // 1 day
         // filter cluster with a time frame smaller than minTimeFrame
-        minTimeFrame: 86400000 * 0, // 0 day
+        minTimeFrame: 60 * 60 * 24 * 1000 * 1, // 1 day
         // min number of items to get a relevant cluster
-        minRelevance: 1
+        minRelevance: 10
     };
 
     oConfig = oConfig || {};
@@ -38,45 +36,14 @@ module.exports = (data, oConfig) => {
         };
     };
 
-    var _gerIrrelevantClusterIndex = (aClusters) => {
-        var irrelevantClusterIndex = 0;
-        var foundIrrelevant = false;
-
-        for (var ii = 1, len = aClusters.length; ii < len; ii++) {
-            if (aClusters[ii].ids.length < aClusters[irrelevantClusterIndex].ids.length) {
-                irrelevantClusterIndex = ii;
-                foundIrrelevant = true;
-            } else if (ii === 1) {
-                foundIrrelevant = true;
-                irrelevantClusterIndex = 0;
-            }
-        }
-
-        if (foundIrrelevant)
-            return irrelevantClusterIndex;
-        else
-            return -1;
-    };
-
     var _addCluster = (oCluster) => {
-        if (_clusters.length < oConfig.maxClusters) {
-            _clusters.push(oCluster);
-        } else {
-            // override most irrelevant cluster
-            var irrelevantClusterIndex = _gerIrrelevantClusterIndex(_clusters);
-
-            if (irrelevantClusterIndex === -1)
-                return;
-
-            if (_clusters[irrelevantClusterIndex].ids.length < oCluster.ids.length)
-                _clusters[irrelevantClusterIndex] = oCluster;
-        }
+        _clusters.push(oCluster);
     };
 
     var _areInSameCluster = (oRecentData, oOldData) => {
         var areInSameCluster = false;
 
-        if (oRecentData.value - oOldData.value <= oConfig.maxDistance) {
+        if (Math.abs(oRecentData.value - oOldData.value) <= oConfig.maxDistance) {
             areInSameCluster = true;
         }
 
@@ -103,7 +70,8 @@ module.exports = (data, oConfig) => {
                         throw 'negative clusterTimeFrame';
                     }
 
-                    if (clusterTimeFrame > oConfig.minTimeFrame && idsInTheSameCluster.length >= oConfig.minRelevance) {
+                    // apply only filters on the single cluster
+                    if (clusterTimeFrame >= oConfig.minTimeFrame && idsInTheSameCluster.length >= oConfig.minRelevance) {
                         var cluster = new Cluster(minValue, maxValue, idsInTheSameCluster);
                         _addCluster(cluster);
                     }

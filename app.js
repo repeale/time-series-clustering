@@ -44,7 +44,8 @@ var init = () => {
         console.log("The file was saved!");
     });*/
 
-    var json = JSON.stringify(getClusters(convertedData));
+    var clusters = getClusters(convertedData);
+    var json = JSON.stringify(clusters);
 
     fs.writeFile("./output.json", json, (err) => {
         if (err) {
@@ -52,6 +53,7 @@ var init = () => {
         }
 
         console.log("The file was saved!");
+        console.log(clusters.clusters.length + ' clusters found!');
     });
 };
 
