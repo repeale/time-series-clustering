@@ -35,14 +35,14 @@ var convertData = (oData) => {
 var init = () => {
     var convertedData = convertData(sampleData, clusterConfig);
 
-    var json2 = JSON.stringify(convertedData);
+    /*var json2 = JSON.stringify(convertedData);
     fs.writeFile("./convertedData.json", json2, (err) => {
         if (err) {
             return console.log(err);
         }
 
         console.log("The file was saved!");
-    });
+    });*/
 
     var clusters = getClusters(convertedData);
     var json = JSON.stringify(clusters);
