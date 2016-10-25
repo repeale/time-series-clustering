@@ -10,15 +10,15 @@
     "hierarchical",
     "cluster",
     "analysis",
-    "grouping",
+    "grouping"
   ],
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alessio Enrico Repetti <repeale@gmail.com>",
   "license": "MIT",
   "engines" : {
-    "node" : "6.9.1"
+    "node" : ">=6.9.1"
   }
 }

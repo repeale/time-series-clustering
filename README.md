@@ -13,7 +13,7 @@ $ npm install --save time-series-clustering
 This will give you a taste of what time-series-clustering does.
 
 ```js
-var getClusters = require('../lib/Clusters.js');
+var getClusters = require('time-series-clustering');
 
 var clusterConfig = {
     // max time distance for two items to be in the same cluster
@@ -67,7 +67,7 @@ var convertedData = {
     }]
 };
 
-var clusters = getClusters(convertedData);
+console.log(getClusters(convertedData, clusterConfig));
 
 // RETURNED OBJECT -> ARRAY OF CLUSTERS
 /*
@@ -81,17 +81,6 @@ var clusters = getClusters(convertedData);
         }]
     }
 */
-
-var json = JSON.stringify(clusters);
-
-fs.writeFile("./output.json", json, (err) => {
-    if (err) {
-        return console.log(err);
-    }
-
-    console.log("The file was saved!");
-    console.log(clusters.clusters.length + ' clusters found!');
-});
 ```
 
 ## License
