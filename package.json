@@ -1,5 +1,5 @@
 {
-  "name": "cluster-time",
+  "name": "time-series-clustering",
   "version": "0.0.1",
   "description": "Time Series Based Clustering in JavaScript",
   "keywords": [
