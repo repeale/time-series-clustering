@@ -1,6 +1,7 @@
 # custom ignore
 .DS_Store
 *.bak
+examples
 
 # Logs
 logs
