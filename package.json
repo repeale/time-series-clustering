@@ -1,6 +1,6 @@
 {
   "name": "time-series-clustering",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Time Series Based Clustering in JavaScript",
   "keywords": [
     "time",
@@ -18,6 +18,10 @@
   },
   "author": "Alessio Enrico Repetti <repeale@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/repeale/time-series-clustering.git"
+  },
   "engines" : {
     "node" : ">=6.9.1"
   }
