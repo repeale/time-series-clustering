@@ -80,8 +80,8 @@ console.log(getClusters(convertedData, clusterConfig));
             "value_max": 1350777600000,
             "value_min": 1350691200000,
             "value_range": 1,
-            "relevance": 11,
-            "ids": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+            "relevance": 12,
+            "ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         }]
     }
 */
