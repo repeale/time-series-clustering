@@ -1,6 +1,6 @@
 # Time Series Clustering
 
-time-series-clustering allows you to find Time Series Based Clustering among your data
+time-series-clustering allows you to find Time Series Based Clustering among your ordered data
 
 ### Install
 
@@ -24,8 +24,12 @@ var clusterConfig = {
     minRelevance: 10
 };
 
+// convertedData must contain UNIX timestamp in "value" fields ordered from the most recent to the oldest
 var convertedData = {
     "data": [{
+        "id": 0,
+        "value": 1477504545436
+    }, {
         "id": 1,
         "value": 1350777600000
     }, {
