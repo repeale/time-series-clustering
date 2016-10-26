@@ -2,6 +2,8 @@
 
 time-series-clustering allows you to find Time Series Based Clustering among your ordered data
 
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
+
 ### Install
 
 ```sh
@@ -90,3 +92,11 @@ console.log(getClusters(convertedData, clusterConfig));
 ## License
 
 [The MIT License](LICENSE) - © [Alessio Enrico Repetti]  (https://github.com/repeale)
+
+[npm-url]: https://npmjs.org/package/time-series-clustering
+[downloads-image]: http://img.shields.io/npm/dm/time-series-clustering.svg
+[npm-image]: http://img.shields.io/npm/v/time-series-clustering.svg
+[david-dm-url]:https://david-dm.org/repeale/time-series-clustering
+[david-dm-image]:https://david-dm.org/repeale/time-series-clustering.svg
+[david-dm-dev-url]:https://david-dm.org/repeale/time-series-clustering#info=devDependencies
+[david-dm-dev-image]:https://david-dm.org/repeale/time-series-clustering/dev-status.svg

@@ -1,5 +1,9 @@
 # time-series-clustering changelog
 
+## 0.0.4
+
+- Added badges to README.md
+
 ## 0.0.3
 
 - Bug fixing
