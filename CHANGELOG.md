@@ -1,5 +1,12 @@
 # time-series-clustering changelog
 
+## 0.1.0
+
+- Bug fixing
+- Added mocha tests
+- Added Travis Ci Build
+- Added badges in README.md
+
 ## 0.0.4
 
 - Added badges to README.md
